@@ -8,7 +8,7 @@ A color-changing gradient background for Übersicht
 
 ## Installation
 
-0.  Download [Übersicht](http://tracesof.net/uebersicht/)
+1.  Download [Übersicht](http://tracesof.net/uebersicht/)
 1.  Download this repo
 1.  Copy `gradient-bg.widget` to your widgets folder
 
