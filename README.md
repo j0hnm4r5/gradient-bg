@@ -2,7 +2,7 @@
 
 A color-changing gradient background for Übersicht
 
-![](sample-usage.png)
+![](sample-usage.gif)
 
 > Example usage, with [Simple Clock](http://tracesof.net/uebersicht-widgets/#simple-clock), [Weather](http://tracesof.net/uebersicht-widgets/#weather), [Calendar](http://tracesof.net/uebersicht-widgets/#calendar), and [Particles](http://tracesof.net/uebersicht-widgets/#particles_widget)
 
