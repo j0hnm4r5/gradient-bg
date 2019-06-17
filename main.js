@@ -2,18 +2,19 @@ command: "",
 
 refreshFrequency: 10000, // 10 seconds
 
-style: ` 
-	top: 0; 
-	left: 0; 
-	width: 100%; 
-	height: 100%; 
-	position: absolute; 
+style: `
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
 	z-index: -10000;
 `,
 
 render: function(output) {
-	
+
 	// global variables that remain between update calls
+	window.gradientOpacity = 1; //background gradient
 	window.step = 0; // the step counter
 	window.colorIndices = [ // imdexes for colors from the color list
 		0, // current left
@@ -64,13 +65,13 @@ update: function(output, domEl) {
 	var r1 = Math.round(istep * curr_left[0] + window.step * next_left[0]);
 	var g1 = Math.round(istep * curr_left[1] + window.step * next_left[1]);
 	var b1 = Math.round(istep * curr_left[2] + window.step * next_left[2]);
-	var color1 = "rgb(" + r1 + "," + g1 + "," + b1 + ")";
+	var color1 = "rgb(" + r1 + "," + g1 + "," + b1 + "," + window.gradientOpacity + ")";
 
 	// get the second color as a lerped color between the right current and next colors
 	var r2 = Math.round(istep * curr_right[0] + window.step * next_right[0]);
 	var g2 = Math.round(istep * curr_right[1] + window.step * next_right[1]);
 	var b2 = Math.round(istep * curr_right[2] + window.step * next_right[2]);
-	var color2 = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
+	var color2 = "rgb(" + r2 + "," + g2 + "," + b2 + "," + window.gradientOpacity + ")";
 
 	// draw it to the screen by changing the background css property
 	$(domEl)
@@ -78,8 +79,8 @@ update: function(output, domEl) {
 			background:
 				"linear-gradient(" +
 				window.step * 360 + // rotate the gradient through time
-				"deg" + 
-				"," + 
+				"deg" +
+				"," +
 				color1 +
 				", " +
 				color2 +
@@ -103,7 +104,7 @@ update: function(output, domEl) {
 			(window.colorIndices[1] +
 				Math.floor(1 + Math.random() * (colors.length - 1))) %
 			colors.length;
-		
+
 		window.colorIndices[3] =
 			(window.colorIndices[3] +
 				Math.floor(1 + Math.random() * (colors.length - 1))) %
